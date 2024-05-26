@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./RuleHintedbenchmarkMiniTest/Markdown\\simple\\TextRetrieval\\34.01_29_2024_08_36_26.425781.3_0.json",
+    "hist": [
+        "you are a Markdown file parser, you are required to answer questions pertaining to the given Markdown file.",
+        "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\n\nInput: \nQuestion: \nExtract all bold texts. Print those raw texts separated by \\n.\nAnswer: \nvigor\nwake\nFile: \ny\ngroot transfor**vigor**mer jargon jargon f![alt](ae.jpg \"hover text\")ar groot transformer dentist\n# z\nhalo trans![alt](be.png \"hover text\")former jargon jargon far groot transformer dentist\n## ab\nidiot transformer jargon jargon far g**wake**root transformer dentist\n\n\n\nAnswer:\n",
+        "To extract all bold texts from the given input file, we need to search for text enclosed within double asterisks `**`. In the provided file, bold text is indicated by surrounding the word with two asterisks without spaces. Here's how we do it:\n\nWe check each line for the pattern `**bold text**`, and then we extract the text between the double asterisks.\n\nThe resulting raw texts from this file are:\n\n1. vigor (from the line `groot transfor**vigor**mer jargon jargon f![alt](ae.jpg \"hover text\")ar groot transformer dentist`)\n2. wake (from the line `idiot transformer jargon jargon far g**wake**root transformer dentist`)\n\nNow, printing them separated by a newline character `\\n`, we get:\n\n```\nvigor\nwake\n```"
+    ],
+    "scores": [
+        false,
+        0.27225130890052357,
+        "True"
+    ],
+    "gold": "To find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time.",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\nAnswer: To extract all bold texts from the given input file, we need to search for text enclosed within double asterisks `**`. In the provided file, bold text is indicated by surrounding the word with two asterisks without spaces. Here's how we do it:\n\nWe check each line for the pattern `**bold text**`, and then we extract the text between the double asterisks.\n\nThe resulting raw texts from this file are:\n\n1. vigor (from the line `groot transfor**vigor**mer jargon jargon f![alt](ae.jpg \"hover text\")ar groot transformer dentist`)\n2. wake (from the line `idiot transformer jargon jargon far g**wake**root transformer dentist`)\n\nNow, printing them separated by a newline character `\\n`, we get:\n\n```\nvigor\nwake\n```\nGroundTruth: To find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time."
+        },
+        {
+            "role": "assistant",
+            "content": "True"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

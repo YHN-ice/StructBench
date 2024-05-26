@@ -1,0 +1,13 @@
+{
+    "Q": "How to access value \"u\"? Answer should be like obj[key or index 1][key or index 2][key or index 3]...",
+    "A": "obj[\"subs\"][0][\"subs\"][0][\"subs\"][0][\"U\"]",
+    "label": [
+        "YAML",
+        "hard",
+        "PathCompose"
+    ],
+    "input": "id: \"o\"\nZ: z,\nY: y,\nsubs: \n- id: \"p\"\n  X: x,\n  W: w,\n  subs: \n  - id: \"q\"\n    V: v,\n    subs: \n    - id: \"r\"\n      U: u,\n      T: t,\n      subs: []\n    - id: \"s\"\n      S: s,\n      subs: []\n  - id: \"t\"\n    R: r,\n    Q: q,\n    subs: \n    - id: \"u\"\n      P: p,\n      O: o,\n      subs: []\n    - id: \"v\"\n      N: n,\n      subs: []\n- id: \"w\"\n  M: m,\n  L: l,\n  subs: \n  - id: \"x\"\n    K: k,\n    J: j,\n    subs: \n    - id: \"y\"\n      I: i,\n      subs: []\n    - id: \"z\"\n      H: h,\n      G: g,\n      subs: []\n  - id: \"ab\"\n    F: f,\n    E: e,\n    subs: \n    - id: \"bb\"\n      D: d,\n      C: c,\n      subs: []\n    - id: \"cb\"\n      B: b,\n      subs: []",
+    "timestamp": "01_30_2024_07_38_05.376221",
+    "input_hash": -5398993645915994085,
+    "rule_hint": "To get the path to access specified value. You have do a recursive search along the subs feilds, starting from the outermost parsed object. For each visted object, check each fields except for subs, and record the path along the way, i.e., subs inside brackets and index into subs inside brackets, and at which field you find the value."
+}

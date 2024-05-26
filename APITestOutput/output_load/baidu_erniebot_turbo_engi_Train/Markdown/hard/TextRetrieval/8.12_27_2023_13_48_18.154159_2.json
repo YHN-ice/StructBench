@@ -1,0 +1,43 @@
+{
+    "benchmark_filename": "./benchmarkTrain/Markdown\\hard\\TextRetrieval\\8.12_27_2023_13_48_18.154159_2.json",
+    "hint_query_history": [
+        {
+            "role": "system",
+            "content": "you are a Markdown file parser, you are required to answer questions pertaining to the given Markdown file."
+        },
+        {
+            "role": "user",
+            "content": "Question: Extract all included image files. Print those file names separated by \\n.\n\nBefore you see the input file and start to answer, let's come up with some potential difficulties and obstacles that might hinder your process of giving the correct answer."
+        },
+        {
+            "role": "assistant",
+            "content": "Certainly, when parsing a Markdown file for image files, there are several potential difficulties and obstacles:\n\n1. **Different Markdown Image Syntaxes**: Markdown supports image embedding in various ways. The most common syntax is `![Alt text](URL \"Title\")`. However, there might be variations or shortcut references that could be used.\n\n2. **Inline HTML**: Some Markdown files might include images using HTML tags such as `<img src=\"image.png\" alt=\"Alt text\" title=\"Title\"/>`. This would require parsing HTML within the Markdown file.\n\n3. **Reference-style Links**: Markdown allows for reference-style links, where the URL is not inline but referenced at another place in the document. For example:\n   ```\n   ![Alt text][id]\n   ...\n   [id]: URL \"Title\"\n   ```\n\n4. **Relative vs. Absolute Paths**: Image sources can be either relative to the file location or absolute URLs. Both need to be handled, but the output requirement for file names may differ.\n\n5. **Encoded URLs**: Some image URLs might be URL-encoded and would need decoding to extract the actual file name.\n\n6. **Linked Images**: Sometimes images are linked so that when you click on them, they take you to another webpage. The syntax looks similar to a regular image syntax but with an extra set of brackets around it.\n\n7. **Escape Characters**: There could be escape characters that are part of Markdown syntax to consider, such as `\\!` which should not be confused with actual images.\n\n8. **Non-image File Links**: The parser must differentiate between images and other types of file links (like `.pdf`, `.docx`) that could also appear in the same format.\n\nUnderstanding these challenges will help us parse Markdown more accurately for image files. Now, I'm ready to see the input file and begin parsing it to extract the included image files."
+        }
+    ],
+    "hist": [
+        "you are a Markdown file parser, you are required to answer questions pertaining to the given Markdown file.",
+        "Question: Extract all included image files. Print those file names separated by \\n.\n\nInput: \nh\nlamb jargon essence halo jargon zen zen cafe essence nob essence kangaroo ![alt](bh.jpg \"hover text\")banana wake oops yogurt zen ravish dentist vigor\n# i\nmonkey jargon essenc**kangaroo**e ha![alt](ch.gif \"hover text\")lo jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n## j\nnob jargon essence halo jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n### k\noops jargon essence halo jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n### l\nperish jargon essence halo jargon zen zen ca**lamb**fe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n## m\nqualify jargon essence halo jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n### n\nravish jargon essence halo **monkey**jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n### o\nsalvage jargon essence halo jarg**nob**on zen zen![alt](dh.gif \"hover text\") cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n# p\ntransformer jargon essence halo jargon zen zen cafe essence nob essence kangaroo banana wake**oops** oops yogurt zen ravish dentist vigor\n## q\nunique jargon essence halo jargon zen zen cafe essen**perish**![alt](eh.gif \"hover text\")alo jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n### r\nvigor jar**qualify**gon essence halo jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ![alt](fh.jpeg \"hover text\")ravish dentist vigor\n### s\nwake jargon essence halo jargon zen zen cafe essence nob ess**ravish**ence kangaroo banana wake oops yogurt zen ravish dentist vigor\n## t\nX-ray jargon essence halo jargon zen zen cafe **salvage**essence nob essence kangaroo banana wake oops yogurt zen ravish de![alt](gh.png \"hover text\")ntist vigor\n### u\nyogurt jargon essence halo jargon zen ze**transformer**n cafe essence nob essence kangaroo banana wake oops yogurt zen ravish dentist vigor\n### v\nzen jargon essence halo jargon zen zen cafe essence nob essence kangaroo banana wake oops yogurt zen ravish de![alt](hh.jpeg \"hover text\")ntist vigor\n\nIn your process of tackle the problem, there are some potential difficulties and latent obstacles for you to notice:\n\nCertainly, when parsing a Markdown file for image files, there are several potential difficulties and obstacles:\n\n1. **Different Markdown Image Syntaxes**: Markdown supports image embedding in various ways. The most common syntax is `![Alt text](URL \"Title\")`. However, there might be variations or shortcut references that could be used.\n\n2. **Inline HTML**: Some Markdown files might include images using HTML tags such as `<img src=\"image.png\" alt=\"Alt text\" title=\"Title\"/>`. This would require parsing HTML within the Markdown file.\n\n3. **Reference-style Links**: Markdown allows for reference-style links, where the URL is not inline but referenced at another place in the document. For example:\n   ```\n   ![Alt text][id]\n   ...\n   [id]: URL \"Title\"\n   ```\n\n4. **Relative vs. Absolute Paths**: Image sources can be either relative to the file location or absolute URLs. Both need to be handled, but the output requirement for file names may differ.\n\n5. **Encoded URLs**: Some image URLs might be URL-encoded and would need decoding to extract the actual file name.\n\n6. **Linked Images**: Sometimes images are linked so that when you click on them, they take you to another webpage. The syntax looks similar to a regular image syntax but with an extra set of brackets around it.\n\n7. **Escape Characters**: There could be escape characters that are part of Markdown syntax to consider, such as `\\!` which should not be confused with actual images.\n\n8. **Non-image File Links**: The parser must differentiate between images and other types of file links (like `.pdf`, `.docx`) that could also appear in the same format.\n\nUnderstanding these challenges will help us parse Markdown more accurately for image files. Now, I'm ready to see the input file and begin parsing it to extract the included image files.\n",
+        "17Open api daily request limit reached"
+    ],
+    "scores": [
+        false,
+        0.0,
+        "False"
+    ],
+    "gold": "hh.jpeg\neh.gif\ngh.png\ndh.gif\nch.gif\nfh.jpeg\nbh.jpg",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Extract all included image files. Print those file names separated by \\n.\nAnswer: 17Open api daily request limit reached\nGroundTruth: hh.jpeg\neh.gif\ngh.png\ndh.gif\nch.gif\nfh.jpeg\nbh.jpg"
+        },
+        {
+            "role": "assistant",
+            "content": "False"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

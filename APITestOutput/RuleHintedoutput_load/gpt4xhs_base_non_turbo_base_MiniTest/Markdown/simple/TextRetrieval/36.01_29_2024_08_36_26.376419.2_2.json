@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./RuleHintedbenchmarkMiniTest/Markdown\\simple\\TextRetrieval\\36.01_29_2024_08_36_26.376419.2_2.json",
+    "hist": [
+        "you are a Markdown file parser, you are required to answer questions pertaining to the given Markdown file.",
+        "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\n\nInput: \nQuestion: \nExtract all included image files. Print those file names separated by \\n.\nAnswer: \nvg.gif\nwg.gif\nFile: \nm\nperish idiot yogurt groot essence kangaroo monkey groot\n# n\nqualify idiot yogurt groot essence kan![alt](vg.gif \"hover text\")garoo monkey groot\n## o\nravish idiot yogurt groot essenc**kangaroo**![alt](wg.gif \"hover text\")essence kangaroo monkey groot\n\n\n\nAnswer:\n",
+        "To get the answer from the file, we need to search for the syntax that indicates an image file. In this case, the syntax appears to be \"![alt](\" followed by the filename and then a space and the \"hover text\" in quotes, all enclosed in parentheses.\n\nSo to extract the filenames, one might use a program or script that can parse the text and look for this pattern. This could be done using regular expressions (regex). Here is a pseudo code example:\n\n```\nfor each line in file:\n     if line contains '![alt](':\n         start = line.find('![alt](') + len('![alt](')\n         end = line.find(' ', start)\n         print(line[start:end])\n```\n\nWhen you run this script on the provided file, it will return:\n\n```\nvg.gif\nwg.gif\n```"
+    ],
+    "scores": [
+        false,
+        0.16901408450704225,
+        "False"
+    ],
+    "gold": "To find the image files, look for texts matching ![*](TARGET \"*\"), the TARGET part is filename. Star means any text is possible.",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\nAnswer: To get the answer from the file, we need to search for the syntax that indicates an image file. In this case, the syntax appears to be \"![alt](\" followed by the filename and then a space and the \"hover text\" in quotes, all enclosed in parentheses.\n\nSo to extract the filenames, one might use a program or script that can parse the text and look for this pattern. This could be done using regular expressions (regex). Here is a pseudo code example:\n\n```\nfor each line in file:\n     if line contains '![alt](':\n         start = line.find('![alt](') + len('![alt](')\n         end = line.find(' ', start)\n         print(line[start:end])\n```\n\nWhen you run this script on the provided file, it will return:\n\n```\nvg.gif\nwg.gif\n```\nGroundTruth: To find the image files, look for texts matching ![*](TARGET \"*\"), the TARGET part is filename. Star means any text is possible."
+        },
+        {
+            "role": "assistant",
+            "content": "False"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

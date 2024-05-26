@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./RuleHintedbenchmarkMiniTest/ORG\\hard\\TextRetrieval\\36.01_29_2024_08_36_26.444412.3_2.json",
+    "hist": [
+        "you are a ORG file parser, you are required to answer questions pertaining to the given ORG file.",
+        "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\n\nInput: \nQuestion: \nExtract all included image files. Print those file names separated by \\n.\nAnswer: \njg.jpg\nkg.png\nig.jpeg\nhg.jpg\nFile: \np\nbanana groot ravish qualify kangaroo unique sal[[hg.jpg]]vage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n* q\ncafe groot ravish qualify kang*zen*aroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n** r\ndentist groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n*** s\nessence groot ravish qualify kangaroo unique salvage ravish vigor qualify unique*apple banana* ravish cafe essence banana X-ray zen X-ray zen transformer\n*** t\nfar groot [[ig.jpeg]]ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n** u\ngroot groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen tr*banana banana*ansformer\n*** v\nhalo groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essen[[jg.jpg]]ce banana X-ray zen X-ray zen transformer\n*** w\nidiot groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n* x\njargon groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n** y\nkangaroo groot ravish qualify kangaroo*cafe banana* unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n*** z\nlamb groot ravish qualify kangaroo unique salvage ravish vigor qualify unique [[kg.png]]ravish cafe essence banana X-ray zen X-ray zen transformer\n*** ab\nmonkey groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n** bb\nnob groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n*** cb\noops groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray zen transformer\n*** db\nperish groot ravish qualify kangaroo unique salvage ravish vigor qualify unique ravish cafe essence banana X-ray zen X-ray z*dentist banana*en transformer\n\n\n\nAnswer:\n",
+        "To extract all the included image files from the given file, look for [[ and ]] tags. Each filename between these tags is an image file. Iterate over each line of the file, use a regular expression to find all instances of filenames wrapped in [[ and ]]. \n\nUse Python code such as this:\n\n```python\nimport re\nimage_files = re.findall(r'\\[\\[(.*?)\\]\\]', file_content)\nfor image_file in image_files:\n    print(image_file)\n```\n\nThis script will extract and print all filenames (jg.jpg, kg.png, ig.jpeg, hg.jpg) that are wrapped in [[]] in the given file."
+    ],
+    "scores": [
+        false,
+        0.18518518518518517,
+        "True"
+    ],
+    "gold": "To find the image files, look for texts matching [[TARGET]], the TARGET part is filename.",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\nAnswer: To extract all the included image files from the given file, look for [[ and ]] tags. Each filename between these tags is an image file. Iterate over each line of the file, use a regular expression to find all instances of filenames wrapped in [[ and ]]. \n\nUse Python code such as this:\n\n```python\nimport re\nimage_files = re.findall(r'\\[\\[(.*?)\\]\\]', file_content)\nfor image_file in image_files:\n    print(image_file)\n```\n\nThis script will extract and print all filenames (jg.jpg, kg.png, ig.jpeg, hg.jpg) that are wrapped in [[]] in the given file.\nGroundTruth: To find the image files, look for texts matching [[TARGET]], the TARGET part is filename."
+        },
+        {
+            "role": "assistant",
+            "content": "True"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

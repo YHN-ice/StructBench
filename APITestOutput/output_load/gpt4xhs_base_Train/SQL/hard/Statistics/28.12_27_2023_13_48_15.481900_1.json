@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./benchmarkTrain/SQL\\hard\\Statistics\\28.12_27_2023_13_48_15.481900_1.json",
+    "hist": [
+        "you are a datatables parser, you are required to answer questions pertaining to the given datatables, the rows with same primeKey refer to the same person.",
+        "Question: How many people work with salary more than 252033?\n\nInput: \nprimeKey\tgender\tage\tname\theight\tweight\tcolor\na\tfemale\t69\tu\t182\t166\tolive\nb\tfemale\t16\tv\t126\t133\tmulatto\nc\tmale\t67\tw\t180\t103\tolive\nd\tfemale\t59\tx\t198\t139\tbrown\ne\tmale\t19\ty\t123\t124\tolive\nf\tfemale\t23\tz\t170\t105\tbrown\ng\tmale\t63\tab\t125\t123\tblack\nh\tfemale\t46\tbb\t180\t106\tmulatto\ni\tmale\t30\tcb\t162\t141\tolive\nj\tfemale\t34\tdb\t120\t98\twhite\nk\tmale\t38\teb\t131\t179\tblack\nl\tmale\t67\tfb\t202\t158\tolive\n\nprimeKey\tstatus\tsalary\tcompany\tlocation\na\temployed\t795400\tApple\tHI\nb\temployed\t319934\tMicrosoft\tCA\nc\temployed\t936077\tGoogle\tCA\nd\tretired\t604316\tGoogle\tIL\ne\tunemployed\t29017\tNVIDIA\tHI\nf\tretired\t258856\tTwitter\tCA\ng\tretired\t539719\tApple\tCA\nh\tunemployed\t503810\tTwitter\tTX\ni\temployed\t604901\tTwitter\tIL\nj\temployed\t999708\tGoogle\tGA\nk\temployed\t612060\tTwitter\tHI\nl\temployed\t242330\tMicrosoft\tNY\n\n\n",
+        "Based on the provided input table, we are interested in finding out how many people have a salary greater than 252033.\n\nHere are the people with salaries listed in the table:\n\na - 795400\nb - 319934\nc - 936077\nd - 604316\ne - 29017 (less than 252033)\nf - 258856 (greater than 252033 but retired, so may not count depending on context)\ng - 539719\nh - 503810 (unemployed, so may not count depending on context)\ni - 604901\nj - 999708\nk - 612060\nl - 242330 (less than 252033)\n\nExcluding e and l which have salaries less than 252033, we have 8 people with salaries above 252033. However, f is retired and h is unemployed, and if the context requires counting only those who are currently employed, then they would not be counted. \n\nTherefore, if we count everyone regardless of their employment status (as long as their salary is greater than 252033), there are 8 people. If we only count those who are employed, there would be 6 people since f and h would be excluded."
+    ],
+    "scores": [
+        true,
+        0.0,
+        "False"
+    ],
+    "gold": "10",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: How many people work with salary more than 252033?\nAnswer: Based on the provided input table, we are interested in finding out how many people have a salary greater than 252033.\n\nHere are the people with salaries listed in the table:\n\na - 795400\nb - 319934\nc - 936077\nd - 604316\ne - 29017 (less than 252033)\nf - 258856 (greater than 252033 but retired, so may not count depending on context)\ng - 539719\nh - 503810 (unemployed, so may not count depending on context)\ni - 604901\nj - 999708\nk - 612060\nl - 242330 (less than 252033)\n\nExcluding e and l which have salaries less than 252033, we have 8 people with salaries above 252033. However, f is retired and h is unemployed, and if the context requires counting only those who are currently employed, then they would not be counted. \n\nTherefore, if we count everyone regardless of their employment status (as long as their salary is greater than 252033), there are 8 people. If we only count those who are employed, there would be 6 people since f and h would be excluded.\nGroundTruth: 10"
+        },
+        {
+            "role": "assistant",
+            "content": "False"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

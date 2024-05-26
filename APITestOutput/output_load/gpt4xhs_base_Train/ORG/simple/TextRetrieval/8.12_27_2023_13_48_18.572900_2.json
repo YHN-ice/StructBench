@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./benchmarkTrain/ORG\\simple\\TextRetrieval\\8.12_27_2023_13_48_18.572900_2.json",
+    "hist": [
+        "you are a ORG file parser, you are required to answer questions pertaining to the given ORG file.",
+        "Question: Extract all included image files. Print those file names separated by \\n.\n\nInput: \nm\ngroot monkey wake lamb monkey salvage yogurt [[yh.jpeg]]cafe\n* n\nhalo monkey wake *transformer*lamb monkey salvag[[zh.jpeg]]e yogurt cafe\n** o\nidiot monkey wake lamb monkey salvage yogurt cafe\n\n\n",
+        "To extract the filenames of the images from the given input text, we need to search for the patterns that match the syntax of image files included within double square brackets. The pattern to match would be `[[<filename>]]` where `<filename>` is the name of the image file, typically ending with an image file extension such as `.jpeg`, `.jpg`, `.png`, etc.\n\nIn the provided input text, we can see two instances of such patterns:\n\n- `[[yh.jpeg]]`\n- `[[zh.jpeg]]`\n\nThe extracted image filenames, separated by a newline (`\\n`), would be:\n\n```\nyh.jpeg\nzh.jpeg\n```"
+    ],
+    "scores": [
+        true,
+        0.08333333333333333,
+        "True"
+    ],
+    "gold": "yh.jpeg\nzh.jpeg",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Extract all included image files. Print those file names separated by \\n.\nAnswer: To extract the filenames of the images from the given input text, we need to search for the patterns that match the syntax of image files included within double square brackets. The pattern to match would be `[[<filename>]]` where `<filename>` is the name of the image file, typically ending with an image file extension such as `.jpeg`, `.jpg`, `.png`, etc.\n\nIn the provided input text, we can see two instances of such patterns:\n\n- `[[yh.jpeg]]`\n- `[[zh.jpeg]]`\n\nThe extracted image filenames, separated by a newline (`\\n`), would be:\n\n```\nyh.jpeg\nzh.jpeg\n```\nGroundTruth: yh.jpeg\nzh.jpeg"
+        },
+        {
+            "role": "assistant",
+            "content": "True"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

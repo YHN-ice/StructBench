@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./RuleHintedbenchmarkMiniTest/Markdown\\simple\\TextRetrieval\\34.01_29_2024_08_36_26.425781.3_0.json",
+    "hist": [
+        "you are a Markdown file parser, you are required to answer questions pertaining to the given Markdown file.",
+        "Question: Extract all bold texts. Print those raw texts separated by \\n.\nTo find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time.\n\nInput: \ny\ngroot transfor**vigor**mer jargon jargon f![alt](ae.jpg \"hover text\")ar groot transformer dentist\n# z\nhalo trans![alt](be.png \"hover text\")former jargon jargon far groot transformer dentist\n## ab\nidiot transformer jargon jargon far g**wake**root transformer dentist\n\n\nAnswer:\n",
+        "```plaintext\ny\ngroot transformer dentist\n# z\ngroot transformer dentist\n## ab\nidiot jargon far groot transformer dentist\n```\n\nExplanation:\n\n* The bold texts are highlighted with double stars, **.\n* The raw texts are separated by \\n.\n* The bold range starts from the double stars at odd positions throughout the input file, and ends with double stars at even positions.\n* The bold texts in the input file are: \"groot transformer dentist\", \"groot\", \"idiot jargon far\", and \"groot\".\n* The raw texts are printed separated by \\n, which results in the above answer."
+    ],
+    "scores": [
+        false,
+        0.0,
+        "False"
+    ],
+    "gold": "vigor\nwake",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Extract all bold texts. Print those raw texts separated by \\n.\nTo find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time.\nAnswer: ```plaintext\ny\ngroot transformer dentist\n# z\ngroot transformer dentist\n## ab\nidiot jargon far groot transformer dentist\n```\n\nExplanation:\n\n* The bold texts are highlighted with double stars, **.\n* The raw texts are separated by \\n.\n* The bold range starts from the double stars at odd positions throughout the input file, and ends with double stars at even positions.\n* The bold texts in the input file are: \"groot transformer dentist\", \"groot\", \"idiot jargon far\", and \"groot\".\n* The raw texts are printed separated by \\n, which results in the above answer.\nGroundTruth: vigor\nwake"
+        },
+        {
+            "role": "assistant",
+            "content": "False"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

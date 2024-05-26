@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./RuleHintedbenchmarkMiniTest/ORG\\simple\\TextRetrieval\\34.01_29_2024_08_36_26.440423.3_0.json",
+    "hist": [
+        "you are a ORG file parser, you are required to answer questions pertaining to the given ORG file.",
+        "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\n\nInput: \nQuestion: \nExtract all bold texts. Print those raw texts separated by \\n.\nAnswer: \nvigor\nX-ray\nwake\nFile: \ny\nidiot monkey ravish perish cafe unique*vigor*[[ij.png]] perish cafe unique jargon far\n* z\njar*wake*gon monkey ravish perish cafe unique jargon far\n** ab\nkangaroo monkey ravish perish cafe unique jargo*X-ray*[[jj.png]]unique jargon far\n\n\n\nAnswer:\n",
+        "The answer can be obtained from the file by searching for all instances where the text is surrounded by asterisks. These instances represent bold texts in the given file format. The words 'vigor', 'wake', and 'X-ray' are each surrounded by asterisks. Each of these words will be extracted and printed, separated by newline characters (\\n). For example, the output might look like:\n\nvigor\nwake\nX-ray"
+    ],
+    "scores": [
+        false,
+        0.28776978417266186,
+        "True"
+    ],
+    "gold": "To find the bold texts, search for single star, i.e., *, the content between two occurances of single star is the bold texts. Note that the bold range should start from the single star occuring at i-th spot throughout the whole input file, where i is odd, and end with single star occuring at jth spot where j is even. For example, text between single star appearing first and second time.",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\nAnswer: The answer can be obtained from the file by searching for all instances where the text is surrounded by asterisks. These instances represent bold texts in the given file format. The words 'vigor', 'wake', and 'X-ray' are each surrounded by asterisks. Each of these words will be extracted and printed, separated by newline characters (\\n). For example, the output might look like:\n\nvigor\nwake\nX-ray\nGroundTruth: To find the bold texts, search for single star, i.e., *, the content between two occurances of single star is the bold texts. Note that the bold range should start from the single star occuring at i-th spot throughout the whole input file, where i is odd, and end with single star occuring at jth spot where j is even. For example, text between single star appearing first and second time."
+        },
+        {
+            "role": "assistant",
+            "content": "True"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

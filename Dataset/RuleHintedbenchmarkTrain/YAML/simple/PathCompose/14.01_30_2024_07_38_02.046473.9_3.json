@@ -1,0 +1,13 @@
+{
+    "Q": "How to access value \"e\"? Answer should be like obj[key or index 1][key or index 2][key or index 3]...",
+    "A": "obj[\"subs\"][0][\"subs\"][0][\"X\"]",
+    "label": [
+        "YAML",
+        "simple",
+        "PathCompose"
+    ],
+    "input": "id: \"r\"\nZ: g,\nsubs: \n- id: \"s\"\n  Y: f,\n  subs: \n  - id: \"t\"\n    X: e,\n    subs: []",
+    "timestamp": "01_30_2024_07_38_02.046473",
+    "input_hash": 7566726499870240248,
+    "rule_hint": "To get the path to access specified value. You have do a recursive search along the subs feilds, starting from the outermost parsed object. For each visted object, check each fields except for subs, and record the path along the way, i.e., subs inside brackets and index into subs inside brackets, and at which field you find the value."
+}

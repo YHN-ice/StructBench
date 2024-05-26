@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./RuleHintedbenchmarkMiniTest/Markdown\\simple\\TextRetrieval\\34.01_29_2024_08_36_26.318399.1_0.json",
+    "hist": [
+        "you are a Markdown file parser, you are required to answer questions pertaining to the given Markdown file.",
+        "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\n\nInput: \nQuestion: \nExtract all bold texts. Print those raw texts separated by \\n.\nAnswer: \nfar\nessence\nFile: \np\nzen salvage vigor idiot pe**essence**rish transformer unique vigor\n# q\napple transformer vigor idiot perish transformer unique vigor\n## r\nbanana transformer vigor idiot perish t**far**ransformer unique vigor\n\n\n\nAnswer:\n",
+        "To extract the bold texts from the file, you will need to look for the texts surrounded by double asterisks '**'. In this case, the texts are \"essence\" and \"far\". \n\n1. Open the file in a text editor or use a programming language to read the file.\n2. Use a search function or regular expression to find the pattern of '**your_text**'. \n3. Extract and print these texts. If using a programming language, you may use a loop to go through all matches and print them separated by \\n (newline character).\n\nUsing python, you can use the following code:\n\n```python\nimport re\n\nfile_content = '...'  # replace with actual content or read from file\nmatches = re.findall(r'\\*\\*(.*?)\\*\\*', file_content)\n\nfor match in matches:\n    print(match)\n```\n\nThis will output:\n\n```\nessence\nfar\n```"
+    ],
+    "scores": [
+        false,
+        0.22999999999999998,
+        "True"
+    ],
+    "gold": "To find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time.",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\nAnswer: To extract the bold texts from the file, you will need to look for the texts surrounded by double asterisks '**'. In this case, the texts are \"essence\" and \"far\". \n\n1. Open the file in a text editor or use a programming language to read the file.\n2. Use a search function or regular expression to find the pattern of '**your_text**'. \n3. Extract and print these texts. If using a programming language, you may use a loop to go through all matches and print them separated by \\n (newline character).\n\nUsing python, you can use the following code:\n\n```python\nimport re\n\nfile_content = '...'  # replace with actual content or read from file\nmatches = re.findall(r'\\*\\*(.*?)\\*\\*', file_content)\n\nfor match in matches:\n    print(match)\n```\n\nThis will output:\n\n```\nessence\nfar\n```\nGroundTruth: To find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time."
+        },
+        {
+            "role": "assistant",
+            "content": "True"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}

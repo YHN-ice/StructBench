@@ -1,0 +1,29 @@
+{
+    "benchmark_filename": "./RuleHintedbenchmarkMiniTest/Markdown\\simple\\TextRetrieval\\34.01_29_2024_08_36_26.318399.1_0.json",
+    "hist": [
+        "you are a Markdown file parser, you are required to answer questions pertaining to the given Markdown file.",
+        "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\n\nInput: \nQuestion: \nExtract all bold texts. Print those raw texts separated by \\n.\nAnswer: \nfar\nessence\nFile: \np\nzen salvage vigor idiot pe**essence**rish transformer unique vigor\n# q\napple transformer vigor idiot perish transformer unique vigor\n## r\nbanana transformer vigor idiot perish t**far**ransformer unique vigor\n\n\n\nAnswer:\n",
+        "To extract all bold texts from the given file, you need to look for text that is surrounded by double asterisks '**'. These double asterisks indicate that the text between them is in bold. \n\nGiven the file content, we have two lines with bold text:\n\n1. `zen salvage vigor idiot pe**essence**rish transformer unique vigor`\n2. `banana transformer vigor idiot perish t**far**ransformer unique vigor`\n\nTo extract just the bold texts, you take the text between the double asterisks:\n\n1. From the first line: `essence`\n2. From the second line: `far`\n\nAs requested, you would print these raw texts separated by a newline character `\\n`:\n\n```\nessence\nfar\n```\n\nNote that the order of the output is based on their appearance in the provided input text, with `essence` appearing before `far`. If the order doesn't matter and you want to respect the input question order \"Extract all bold texts. Print those raw texts separated by \\n.\", then `far` would come first, followed by `essence`:\n\n```\nfar\nessence\n```"
+    ],
+    "scores": [
+        false,
+        0.29411764705882354,
+        "False"
+    ],
+    "gold": "To find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time.",
+    "judge_histories": [
+        {
+            "role": "system",
+            "content": "You are a judge that will decide whether a answer is semantically right based on the question and ground truth. Output should be one of 'True' of 'False' and nothing else."
+        },
+        {
+            "role": "user",
+            "content": "Question: Given as input is a QA pertaining to a file with special format and syntax, please explain how to get the answer from the file: \n\nAnswer: To extract all bold texts from the given file, you need to look for text that is surrounded by double asterisks '**'. These double asterisks indicate that the text between them is in bold. \n\nGiven the file content, we have two lines with bold text:\n\n1. `zen salvage vigor idiot pe**essence**rish transformer unique vigor`\n2. `banana transformer vigor idiot perish t**far**ransformer unique vigor`\n\nTo extract just the bold texts, you take the text between the double asterisks:\n\n1. From the first line: `essence`\n2. From the second line: `far`\n\nAs requested, you would print these raw texts separated by a newline character `\\n`:\n\n```\nessence\nfar\n```\n\nNote that the order of the output is based on their appearance in the provided input text, with `essence` appearing before `far`. If the order doesn't matter and you want to respect the input question order \"Extract all bold texts. Print those raw texts separated by \\n.\", then `far` would come first, followed by `essence`:\n\n```\nfar\nessence\n```\nGroundTruth: To find the bold texts, search for double stars, i.e., **, the content between two occurances of double stars is the bold texts. Note that the bold range should start from the double stars occuring at i-th spot throughout the whole input file, where i is odd, and end with double stars occuring at jth spot where j is even. For example, text between double stars appearing first and second time."
+        },
+        {
+            "role": "assistant",
+            "content": "False"
+        }
+    ],
+    "judge_model": "gpt4xhs"
+}
