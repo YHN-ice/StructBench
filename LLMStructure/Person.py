@@ -1,6 +1,34 @@
 import random
-from name import Name
+split = ','
 
+
+
+
+class Name:
+    def __init__(self, init=0, vocab=None, delimiter=''):
+        self.delimiter = delimiter
+        self.id = init
+        self.hist = set()
+        if not vocab:
+            vocab = {i: chr(ord('a')+i) for i in range(26)}
+        self.vocab = vocab
+
+    def poll(self):
+        name = self[self.id]
+        self.hist.add(name)
+        self.id += 1
+        return name
+
+    def __getitem__(self, key):
+        if key == 0:
+            name = self.vocab[0]
+        else:
+            name_seg = []
+            while key:
+                name_seg.append(self.vocab[key % 26])
+                key = key//26
+            name = self.delimiter.join(name_seg)
+        return name
 
 class Person:
 
@@ -21,35 +49,35 @@ class Person:
         self.location = random.choice(Person.cities())
 
     def __bio(self):
-        return f'{self.gender}\t{self.age}\t{self.name}\t{self.height}\t{self.weight}\t{self.color}'
+        return f'{self.gender}{split}{self.age}{split}{self.name}{split}{self.height}{split}{self.weight}{split}{self.color}'
 
     def __wrk(self):
-        return f'{self.status}\t{self.salary}\t{self.company}\t{self.location}'
+        return f'{self.status}{split}{self.salary}{split}{self.company}{split}{self.location}'
 
     def bio_to_string(self):
-        return f'{self.primeKey}\t{self.__bio()}'
+        return f'{self.primeKey}{split}{self.__bio()}'
 
     def work_to_string(self):
-        return f'{self.primeKey}\t{self.__wrk()}'
+        return f'{self.primeKey}{split}{self.__wrk()}'
 
     def to_string(self):
-        return f'{self.primeKey}\t{self.__bio()}\t{self.__wrk()}'
+        return f'{self.primeKey}{split}{self.__bio()}{split}{self.__wrk()}'
 
     @classmethod
     def gen_random(cls, simple=True):
         key_gen = Name()
-        name_gen = Name(init=random.randint(0,25))
+        name_gen = Name(init=random.randint(0, 25))
         size = random.randint(4, 10) if simple else random.randint(10, 15)
         data = [Person(key_gen.poll(), name_gen.poll()) for _ in range(size)]
         return data, list(key_gen.hist)
 
     @classmethod
     def bio_table_head(cls):
-        return f'primeKey\tgender\tage\tname\theight\tweight\tcolor'
+        return f'primeKey{split}gender{split}age{split}name{split}height{split}weight{split}color'
 
     @classmethod
     def work_table_head(cls):
-        return f'primeKey\tstatus\tsalary\tcompany\tlocation'
+        return f'primeKey{split}status{split}salary{split}company{split}location'
 
     @classmethod
     def fields(cls):

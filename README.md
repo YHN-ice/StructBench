@@ -3,11 +3,7 @@
 This repo is an archive for
 
 1. [StructBench](./Dataset) Dataset 
-2. API Test [Results](./APITestOutput)
-3. Code used to
-    1. [generate the dataset](./LLMStructure/datagen.py)
-    2. [query public chat API](./LLMStructure/api.py)
-    3. [finetune](./LLaMA-Factory/finetune.sh) and [inference](./LLaMA-Factory/minitest.sh)[^1][^2]
+2. Code used to [generate the dataset](./LLMStructure/datagen.py)
     
     
 # Repo Structure
