@@ -1,14 +1,26 @@
 from datetime import datetime
-from time import sleep
+import os
 import glob
 
-import MYSQL, MYmarkdown, MYtree, MYxml, MYjson, MYyaml, MYlatex, json, MYorg
-from api import open_wrapper
+import MYCSV, MYmarkdown, MYtree, MYxml, MYjson, MYyaml, MYlatex, json, MYorg
 
-type_set = [MYSQL.SQL, MYjson.JSON, MYxml.XML, MYtree.Tree, MYyaml.YAML, MYmarkdown.Markdown, MYlatex.LaTeX, MYorg.ORG]
+type_set = [MYCSV.CSV, MYjson.JSON, MYxml.XML, MYtree.Tree, MYyaml.YAML, MYmarkdown.Markdown, MYlatex.LaTeX, MYorg.ORG]
 
 
+def open_wrapper(file_path, mode='r', *args, **kwargs):
+    directory = os.path.dirname(file_path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+    return open(file_path, mode, *args, **kwargs)
 def write_data_for_sample(sample, typename, level, i, few_shot, with_rule_hint=False): # few_shot is just list of other samples
+    '''
+    sample:
+    typename:
+    level: "simple" or "hard", just used to create dir
+    i:
+    few_shot: Number of few shot demonstration
+    with_rule_hint: bool
+    '''
     for idx,((q, a, input_thin), label_list) in enumerate(zip(sample['QA_to_save'], sample['labels'])):
         timestamp = datetime.now().strftime("%m_%d_%Y_%H_%M_%S.%f")
         to_dump = {'Q': q.strip(), 'A': a.strip(), 'label': ([typename, level] if level is not None else [typename]) + label_list,
@@ -41,9 +53,14 @@ def write_data_for_sample(sample, typename, level, i, few_shot, with_rule_hint=F
             json.dump(to_dump, f, indent=4, ensure_ascii=False)
 
 
-def procedure_gen(few_shot=0, with_rule_hint=False):
+def procedure_gen(few_shot=0, num:int=4, with_rule_hint=False):
+    '''
+    few_shot: Number of few shot demonstration
+    num: Number of questions generated for each level and task
+    with_rule_hint: generated rule hint
+    '''
     i = 0
-    while i < 4: # Train-80, Test-20, MiniTest-4
+    while i < num:
         for Type in type_set:
             for level in ['simple', 'hard']:
                 sample = Type.gen_QAs(level == 'simple')
@@ -53,4 +70,4 @@ def procedure_gen(few_shot=0, with_rule_hint=False):
 
 
 if __name__ == '__main__':
-    procedure_gen(few_shot=2)
+    procedure_gen(few_shot=0, num=4)
