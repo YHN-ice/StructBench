@@ -2,8 +2,8 @@ import os, random
 from Person import Person
 
 
-def gen_QAs(simple=True):
-    data, roster = Person.gen_random(simple=simple)
+def gen_QAs(node, n_ary_ratio, para_len_ratio):
+    data, roster = Person.gen_random(node=node)
     finder = {}
     for i, row in enumerate(data):
         finder[row.primeKey] = i
@@ -48,10 +48,11 @@ def gen_QAs(simple=True):
             }
 
 
+
 class CSV:
     @staticmethod
-    def gen_QAs(simple=True):
-        return gen_QAs(simple)
+    def gen_QAs(node=4,n_ary_ratio=1,para_len_ratio=1):
+        return gen_QAs(node=node, n_ary_ratio=n_ary_ratio, para_len_ratio=para_len_ratio)
 
 
 if __name__ == '__main__':

@@ -64,10 +64,10 @@ class Person:
         return f'{self.primeKey}{split}{self.__bio()}{split}{self.__wrk()}'
 
     @classmethod
-    def gen_random(cls, simple=True):
+    def gen_random(cls, node):
         key_gen = Name()
         name_gen = Name(init=random.randint(0, 25))
-        size = random.randint(4, 10) if simple else random.randint(10, 15)
+        size = node
         data = [Person(key_gen.poll(), name_gen.poll()) for _ in range(size)]
         return data, list(key_gen.hist)
 

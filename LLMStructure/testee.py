@@ -4,10 +4,12 @@ In this file we collect a variable of APIs that are publicly available
 import time
 from time import sleep
 
-from SparkAPI import SparkApi, test # https://www.xfyun.cn/doc/spark/Web.html, need download their example code to import
 
 
 def spark_fn_api(prompt, _, credentials=None):
+    from SparkAPI import SparkApi, \
+        test  # https://www.xfyun.cn/doc/spark/Web.html, need download their example code to import
+
     test.text.clear()
     if credentials is None:
         credentials = {'appid': test.appid, 'api_key': test.api_key, 'api_secret': test.api_secret}

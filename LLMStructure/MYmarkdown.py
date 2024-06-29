@@ -102,8 +102,10 @@ class Markdown:
     ...(content of markdown)
     """
     @staticmethod
-    def gen_QAs(simple=True):
-        depth, n_ary, para_len = (2, 1, 8) if simple else (3, 2, 20)
+    def gen_QAs(node,n_ary_ratio, para_len_ratio):
+        depth = node
+        n_ary = int(node * n_ary_ratio)
+        para_len = int(node * para_len_ratio)
         root, (ids, contents, bold_texts, img_paths), keeper = Markdown.random(depth, n_ary, para_len)
 
         system = 'You are a markdown file parser, you have to answer questions regarding this markdown file.'

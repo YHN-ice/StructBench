@@ -7,7 +7,7 @@ from random import randint, choice
 from MYtree import Tree
 
 exts = ['jpg', 'jpeg', 'png', 'gif']
-prefixes = ['section', 'subsection', 'subsubsection']
+prefixes = ['sub'*(i-1) + 'section' for i in range(20)]
 
 
 def add_bold_style(bold_text: str):
@@ -109,8 +109,12 @@ class LaTeX:
     ...(content of markdown)
     """
     @staticmethod
-    def gen_QAs(simple=True):
-        depth, n_ary, para_len = (2, 1, 8) if simple else (3, 2, 20)
+    def gen_QAs(node,n_ary_ratio, para_len_ratio):
+        depth = node
+        n_ary = int(node * n_ary_ratio)
+        para_len = int(node * para_len_ratio)
+        # depth, n_ary, para_len = (2, 1, 8)
+        # print(depth, n_ary, para_len)
         root, (ids, contents, bold_texts, img_paths), keeper = LaTeX.random(depth, n_ary, para_len)
 
         system = 'You are a LaTeX file parser, you have to answer questions regarding this LaTeX file.'

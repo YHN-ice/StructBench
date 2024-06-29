@@ -98,9 +98,11 @@ class JSON:
     ...(content of JSON)
     """
     @staticmethod
-    def gen_QAs(simple=True):
-        depth, n_ary, attr_max = (2, 1, 1) if simple else (3, 2, 2)
-        root, (content_name, attr_name, val_name), keeper = JSON.random(depth, n_ary, attr_max)
+    def gen_QAs(node,n_ary_ratio, para_len_ratio):
+        depth = node
+        n_ary = int(node * n_ary_ratio)
+        para_len = int(node * para_len_ratio)
+        root, (content_name, attr_name, val_name), keeper = JSON.random(depth, n_ary, para_len)
 
         system = 'You are a JSON file parser, you have to answer my questions regarding this JSON file. ' \
                  'In your answer, double quote is preferred wherever possible'

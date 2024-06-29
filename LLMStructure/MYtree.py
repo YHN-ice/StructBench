@@ -58,8 +58,10 @@ class Tree(Structure):
     """
 
     @staticmethod
-    def gen_QAs(simple=True):
-        depth, n_ary = (3, 4) if simple else (7, 2)
+    def gen_QAs(node,n_ary_ratio, para_len_ratio):
+        depth = node
+        n_ary = int(node * n_ary_ratio)
+        # para_len = int(node * para_len_ratio)
         root, name, keeper = Tree.random(depth, n_ary)
         depth_for, path_for = choices(list(keeper.keys()), k=2)
         dumped_edges_raw = Tree.get_edges(root).split('\n')
